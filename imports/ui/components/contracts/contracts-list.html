@@ -1,0 +1,23 @@
+﻿<template name="contracts_list">
+  <h3>Contracts</h3>
+  {{#if isCreatingContract}}
+    <form class="create-contract">
+      <select name="customerId">
+        {{#each customers}}
+          <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+      </select>
+      <input name="name" type="text" />
+      <input name="signedDate" type="date" />
+      <button type="submit">Submit</button>
+      <a class="cancel" href="#">Cancel</a>
+    </form>
+  {{else}}
+    <a class="create" href="#">Create</a>
+  {{/if}}
+  <ul>
+    {{#each contracts}}
+      {{> contract}}
+    {{/each}}
+  </ul>
+</template>
